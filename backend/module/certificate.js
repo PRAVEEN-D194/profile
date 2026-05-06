@@ -17,10 +17,6 @@ const certificatemodule = new mongoose.Schema({
   },
   description: {
     type: String
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
   }
 });
 

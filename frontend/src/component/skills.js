@@ -41,7 +41,7 @@ export default function Skills() {
   };
 
   return (
-    <section style={sectionStyle}>
+    <section style={sectionStyle} id="skills">
       <h1>My Skills</h1>
 
       <div style={gridStyle}>

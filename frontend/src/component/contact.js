@@ -33,7 +33,7 @@ export default function Contact() {
   };
 
   return (
-    <section style={sectionStyle}>
+    <section style={sectionStyle} id="contact">
       <h1 style={titleStyle}>Contact Me</h1>
 
       <p style={{ color: "#555" }}>
