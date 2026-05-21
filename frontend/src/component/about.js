@@ -64,7 +64,7 @@ export default function About() {
           <h1>About Me</h1>
 
           <p>
-            Hi, I’m <span className="highlight">Praveen</span>, a 2nd-year IT student from Chennai.
+            Hi, I’m <span className="highlight">Praveen</span>, a 2nd-year IT student at Chennai Institute of Technology.
           </p>
 
           <p>

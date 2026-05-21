@@ -5,7 +5,7 @@ import axios from 'axios';
 export default function Project(){
     const [project, setproject] =  useState([]);
     useEffect(() => {
-    axios.get("http://localhost:8000/api/v1/project")
+    axios.get(`${process.env.REACT_APP_URL}/project`)
         .then((res) => {
         //console.log("FULL RESPONSE:", res.data);   // 👈 add this
         setproject(res.data.project);

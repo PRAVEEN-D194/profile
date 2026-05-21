@@ -5,9 +5,9 @@ import axios from 'axios';
 export default function Certificate(){
     const [certificate, setcertificate] =  useState([]);
     useEffect(() => {
-    axios.get("http://localhost:8000/api/v1/certificate")
+    axios.get(`${process.env.REACT_APP_URL}/certificate`)
         .then((res) => {
-        console.log("FULL RESPONSE:", res.data);   // 👈 add this
+        //console.log("FULL RESPONSE:", res.data);   // 👈 add this
         setcertificate(res.data.certificate);
         })
         .catch((error) => console.log(error));

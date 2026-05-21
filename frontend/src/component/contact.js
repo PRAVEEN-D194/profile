@@ -63,7 +63,7 @@ export default function Contact() {
 
       <div>
         <a
-          href="mailto:praveend12321@gmail.com"
+          href="mailto:praveend2103@gmail.com"
           style={linkStyle}
           onMouseOver={(e) =>
             (e.target.style.background = "#0ea5e9")

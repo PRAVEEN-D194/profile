@@ -8,7 +8,7 @@ const cors = require("cors");
 
 const app = express();
 app.use(cors());
-dotenv.config({ path: path.join(__dirname, "./config/config.env") });
+dotenv.config({ path: path.join(__dirname, "./.env") });
 
 connectdatabase();
 
