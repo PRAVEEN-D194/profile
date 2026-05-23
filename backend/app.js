@@ -14,6 +14,7 @@ connectdatabase();
 
 app.use('/api/v1', project);
 app.use('/api/v1', certificate);
-app.listen(process.env.PORT, () => {
-    console.log(`porst listen ${process.env.PORT}`);
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+    console.log(`porst listen ${PORT}`);
 });
