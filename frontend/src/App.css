@@ -72,7 +72,7 @@ h1 {
   font-size: 14px;
 }
 
-/* 🔥 GRID CONTAINER */
+/* GRID CONTAINER */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -157,4 +157,167 @@ footer {
   padding: 20px;
   text-align: center;
   margin-top: 40px;
+}
+
+/* =========================
+   📱 MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  nav {
+    padding: 10px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 8px 10px;
+    font-size: 14px;
+  }
+
+  /* SECTION */
+  section {
+    padding: 80px 15px;
+  }
+
+  /* HEADING */
+  h1 {
+    font-size: 24px;
+  }
+
+  /* GRID */
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* CARD */
+  .card {
+    padding: 15px;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  /* SKILLS */
+  #skills li {
+    display: block;
+    margin: 8px auto;
+    width: fit-content;
+  }
+
+  /* CONTACT */
+  .contact-links a {
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+  }
+}
+
+/* SMALL MOBILE (Android very small screens) */
+@media (max-width: 480px) {
+
+  nav a {
+    font-size: 12px;
+    margin: 5px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .card img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  nav {
+    padding: 10px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 6px 8px;
+    font-size: 14px;
+  }
+
+  /* SECTION */
+  section {
+    padding: 80px 12px;
+  }
+
+  /* HEADING */
+  h1 {
+    font-size: 22px;
+  }
+
+  /* 🔥 GRID - MAKE CARDS SMALLER BUT STILL 2 COLUMN */
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 12px;
+  }
+
+  /* CARD - SMALL SIZE */
+  .card {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .card img {
+    height: 130px; /* smaller image */
+  }
+
+  .card h3 {
+    font-size: 14px;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+
+  .card a {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  /* SKILLS */
+  #skills li {
+    display: inline-block;
+    font-size: 12px;
+    padding: 6px 10px;
+    margin: 5px;
+  }
+
+  /* CONTACT */
+  .contact-links a {
+    display: block;
+    margin: 8px auto;
+    width: 90%;
+    font-size: 13px;
+  }
+}
+
+/* VERY SMALL PHONE */
+@media (max-width: 480px) {
+
+  .grid-container {
+    grid-template-columns: 1fr; /* single column */
+  }
+
+  .card img {
+    height: 160px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
 }
