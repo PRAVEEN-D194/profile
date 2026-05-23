@@ -14,7 +14,7 @@ export default function Certificate(){
     }, []);
     return(
         <section id="certificates-section">
-        <h1>My Certificates</h1>
+        <h1 id="headding">My Certificates</h1>
         <div className="grid-container">
         {certificate.map((c) => (
         <div key={c._id} className="card">

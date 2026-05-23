@@ -14,7 +14,7 @@ export default function Project(){
     }, []);
     return(
         <section id="projects-section">
-            <h1>My Projects</h1>
+            <h1 id="headding">My Projects</h1>
         <div className="grid-container">
             {project.map((p)=>(
                 <div key={p._i} className="card">
