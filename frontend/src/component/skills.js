@@ -1,94 +1,93 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Code, Layout, Server, Database, Wrench, Cpu } from 'lucide-react';
+
 export default function Skills() {
-  const sectionStyle = {
-    padding: "80px 20px",
-    textAlign: "center",
-    background: "#f5f7fa"
+  const categories = [
+    {
+      title: 'Programming',
+      icon: <Code size={20} color="#38bdf8" />,
+      skills: ['Python', 'C++', 'C'],
+    },
+    {
+      title: 'Frontend',
+      icon: <Layout size={20} color="#0ea5e9" />,
+      skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+    },
+    {
+      title: 'Backend',
+      icon: <Server size={20} color="#a855f7" />,
+      skills: ['Node.js', 'Express.js'],
+    },
+    {
+      title: 'Database',
+      icon: <Database size={20} color="#6366f1" />,
+      skills: ['MongoDB'],
+    },
+    {
+      title: 'Tools',
+      icon: <Wrench size={20} color="#10b981" />,
+      skills: ['Git', 'GitHub'],
+    },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
   };
 
-  const gridStyle = {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-    gap: "25px",
-    maxWidth: "1000px",
-    margin: "auto"
-  };
-
-  const cardStyle = {
-    background: "#ffffff",
-    padding: "20px",
-    borderRadius: "15px",
-    textAlign: "left",
-    boxShadow: "0 5px 20px rgba(0,0,0,0.08)",
-    transition: "0.3s"
-  };
-
-  const titleStyle = {
-    marginBottom: "15px",
-    color: "#0ea5e9"
-  };
-
-  const listStyle = {
-    listStyle: "none",
-    padding: 0
-  };
-
-  const itemStyle = {
-    background: "#e2e8f0",
-    margin: "6px 0",
-    padding: "8px 12px",
-    borderRadius: "8px",
-    fontSize: "14px"
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
   };
 
   return (
-    <section style={sectionStyle} id="skills">
-      <h1>My Skills</h1>
-
-      <div style={gridStyle}>
-
-        <div style={cardStyle}>
-          <h3 style={titleStyle}>Programming</h3>
-          <ul style={listStyle}>
-            <li style={itemStyle}>Python</li>
-            <li style={itemStyle}>C++</li>
-            <li style={itemStyle}>C</li>
-          </ul>
+    <section id="skills">
+      <div className="section-header">
+        <div className="section-badge">
+          <Cpu size={14} />
+          <span>TECHNICAL PROFICIENCY</span>
         </div>
-
-        <div style={cardStyle}>
-          <h3 style={titleStyle}>Frontend</h3>
-          <ul style={listStyle}>
-            <li style={itemStyle}>HTML</li>
-            <li style={itemStyle}>CSS</li>
-            <li style={itemStyle}>JavaScript</li>
-            <li style={itemStyle}>React</li>
-          </ul>
-        </div>
-
-        <div style={cardStyle}>
-          <h3 style={titleStyle}>Backend</h3>
-          <ul style={listStyle}>
-            <li style={itemStyle}>Node.js</li>
-            <li style={itemStyle}>Express.js</li>
-          </ul>
-        </div>
-
-        <div style={cardStyle}>
-          <h3 style={titleStyle}>Database</h3>
-          <ul style={listStyle}>
-            <li style={itemStyle}>MongoDB</li>
-          </ul>
-        </div>
-
-        <div style={cardStyle}>
-          <h3 style={titleStyle}>Tools</h3>
-          <ul style={listStyle}>
-            <li style={itemStyle}>Git</li>
-            <li style={itemStyle}>GitHub</li>
-          </ul>
-        </div>
-
+        <h1 id="headding">My Skills</h1>
+        <p className="section-subtitle">
+          Technologies and tools I work with to build robust digital products.
+        </p>
       </div>
+
+      <motion.div
+        className="skills-grid"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {categories.map((cat, idx) => (
+          <motion.div key={idx} className="skill-card" variants={cardVariants}>
+            <h3>
+              {cat.icon}
+              <span>{cat.title}</span>
+            </h3>
+            <ul>
+              {cat.skills.map((skill, sIdx) => (
+                <li key={sIdx}>{skill}</li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }

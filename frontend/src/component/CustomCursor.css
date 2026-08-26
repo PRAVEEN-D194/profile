@@ -1,0 +1,472 @@
+/* =========================================
+   CUSTOM ARC REACTOR CURSOR
+========================================= */
+
+/* Hide native cursor only on desktop */
+
+@media (pointer: fine) {
+
+  body,
+  body *,
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    cursor: none !important;
+  }
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.arc-cursor-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999999;
+  overflow: hidden;
+}
+
+/* =========================================
+   ENERGY AURA
+========================================= */
+
+.arc-cursor-aura {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 90px;
+  height: 90px;
+
+  margin-left: -45px;
+  margin-top: -45px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle,
+      rgba(248, 56, 56, 0.22) 0%,
+      rgba(249, 183, 27, 0.12) 35%,
+      rgba(225, 250, 2, 0.05) 60%,
+      transparent 75%);
+
+  filter: blur(2px);
+
+  pointer-events: none;
+
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    margin 0.3s ease,
+    opacity 0.3s ease;
+
+  will-change: transform;
+}
+
+/* Aura Hover */
+
+.arc-cursor-aura.hovered {
+  width: 130px;
+  height: 130px;
+
+  margin-left: -65px;
+  margin-top: -65px;
+
+  background: radial-gradient(circle,
+      rgba(253, 6, 6, 0.3) 0%,
+      rgba(56, 189, 248, 0.18) 40%,
+      transparent 75%);
+}
+
+/* ============================================
+   ⚡ ELECTRIC FIRE OUTER RING
+============================================ */
+
+.arc-fire-ring {
+  position: fixed;
+
+  width: 100px;
+  height: 100px;
+
+  margin-left: -50px;
+  margin-top: -50px;
+
+  border-radius: 50%;
+
+  border: 2px solid #ff3c00;
+
+  box-shadow:
+    0 0 8px #ff3c00,
+    0 0 20px #ff4d00,
+    0 0 45px rgba(255, 40, 0, 0.9),
+    inset 0 0 15px rgba(255, 80, 0, 0.8);
+
+  animation:
+    fireRotate 3s linear infinite,
+    fireFlicker 0.4s infinite alternate;
+
+  will-change: transform;
+}
+
+/* ============================================
+   🔄 MAIN ROTATION
+============================================ */
+
+@keyframes fireRotate {
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}
+
+
+/* 🔥 Flickering Energy */
+
+@keyframes fireFlicker {
+  0% {
+    box-shadow:
+      0 0 8px #ff3c00,
+      0 0 20px #ff4d00,
+      0 0 40px rgba(255, 40, 0, 0.8);
+  }
+
+  100% {
+    box-shadow:
+      0 0 15px #ffcc00,
+      0 0 35px #ff3c00,
+      0 0 60px rgba(255, 50, 0, 1);
+  }
+}
+
+/* Core Hover */
+
+.arc-cursor-core.hovered {
+  width: 14px;
+  height: 14px;
+
+  margin-left: -7px;
+  margin-top: -7px;
+
+  background: radial-gradient(circle,
+      #ffffff 0%,
+      #e9d5ff 25%,
+      #a855f7 60%,
+      #38bdf8 100%);
+
+  box-shadow:
+    0 0 12px #ffffff,
+    0 0 28px #a855f7,
+    0 0 55px rgba(168, 85, 247, 0.9);
+}
+
+/* =========================================
+   HUD / ARC REACTOR RINGS
+========================================= */
+
+.arc-cursor-hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 56px;
+  height: 56px;
+
+  margin-left: -28px;
+  margin-top: -28px;
+
+  pointer-events: none;
+
+  transition:
+    width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    margin 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  will-change: transform;
+}
+
+/* SVG Full Size */
+
+.arc-cursor-hud svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+
+  filter: drop-shadow(0 0 4px #38bdf8) drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));
+}
+
+/* =========================================
+   ROTATING RINGS
+========================================= */
+
+.svg-hud-ring-cw {
+  transform-origin: center;
+  transform-box: fill-box;
+
+  animation: rotateCW 7s linear infinite;
+}
+
+.svg-hud-ring-ccw {
+  transform-origin: center;
+  transform-box: fill-box;
+
+  animation: rotateCCW 10s linear infinite;
+}
+
+.svg-hud-ring-fast {
+  transform-origin: center;
+  transform-box: fill-box;
+
+  animation: rotateCW 4s linear infinite;
+}
+
+/* Clockwise Rotation */
+
+@keyframes rotateCW {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Counter Clockwise Rotation */
+
+@keyframes rotateCCW {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* =========================================
+   HOVER HUD EFFECT
+========================================= */
+
+.arc-cursor-hud.hovered {
+  width: 76px;
+  height: 76px;
+
+  margin-left: -38px;
+  margin-top: -38px;
+}
+
+/* Faster rotation on hover */
+
+.arc-cursor-hud.hovered .svg-hud-ring-cw {
+  animation-duration: 2.2s;
+}
+
+.arc-cursor-hud.hovered .svg-hud-ring-ccw {
+  animation-duration: 3.2s;
+}
+
+.arc-cursor-hud.hovered .svg-hud-ring-fast {
+  animation-duration: 1.5s;
+}
+
+/* =========================================
+   CENTER TARGET CROSS
+========================================= */
+
+.arc-cursor-target {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 24px;
+  height: 24px;
+
+  margin-left: -12px;
+  margin-top: -12px;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
+  pointer-events: none;
+}
+
+.arc-cursor-target::before,
+.arc-cursor-target::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 5px #38bdf8,
+    0 0 10px #38bdf8;
+}
+
+/* Horizontal line */
+
+.arc-cursor-target::before {
+  width: 20px;
+  height: 1px;
+
+  transform: translate(-50%, -50%);
+}
+
+/* Vertical line */
+
+.arc-cursor-target::after {
+  width: 1px;
+  height: 20px;
+
+  transform: translate(-50%, -50%);
+}
+
+/* Show target when hovering */
+
+.arc-cursor-target.hovered {
+  opacity: 0.8;
+
+  animation: targetSpin 3s linear infinite;
+}
+
+@keyframes targetSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   CLICK RIPPLE
+========================================= */
+
+.arc-click-ripple {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 12px;
+  height: 12px;
+
+  margin-left: -6px;
+  margin-top: -6px;
+
+  border: 2px solid #38bdf8;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  box-shadow:
+    0 0 10px #38bdf8,
+    0 0 20px rgba(56, 189, 248, 0.7);
+
+  animation: rippleExpand 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+/* Ripple Animation */
+
+@keyframes rippleExpand {
+  0% {
+    width: 12px;
+    height: 12px;
+
+    margin-left: -6px;
+    margin-top: -6px;
+
+    opacity: 1;
+
+    transform: scale(0.5);
+
+    border-color: #ffffff;
+  }
+
+  100% {
+    width: 100px;
+    height: 100px;
+
+    margin-left: -50px;
+    margin-top: -50px;
+
+    opacity: 0;
+
+    transform: scale(1);
+
+    border-color: #38bdf8;
+  }
+}
+
+/* =========================================
+   CLICK EFFECT ON CURSOR
+========================================= */
+
+.arc-cursor-core.clicking {
+  animation: coreClick 0.25s ease forwards;
+}
+
+@keyframes coreClick {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================================
+   MOBILE / TOUCH DEVICES
+========================================= */
+
+@media (pointer: coarse),
+(max-width: 768px) {
+
+  .arc-cursor-container {
+    display: none !important;
+  }
+
+  body,
+  body *,
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    cursor: auto !important;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .svg-hud-ring-cw,
+  .svg-hud-ring-ccw,
+  .svg-hud-ring-fast,
+  .arc-cursor-core,
+  .arc-cursor-target {
+    animation: none !important;
+  }
+}

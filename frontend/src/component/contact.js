@@ -1,80 +1,59 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Mail, MapPin, Send, MessageSquare } from 'lucide-react';
+
 export default function Contact() {
-  const sectionStyle = {
-    padding: "80px 20px",
-    textAlign: "center",
-    background: "#f5f7fa"
-  };
-
-  const titleStyle = {
-    fontSize: "32px",
-    marginBottom: "15px",
-    color: "#0f172a"
-  };
-
-  const boxStyle = {
-    marginTop: "20px",
-    padding: "20px",
-    background: "white",
-    display: "inline-block",
-    borderRadius: "12px",
-    boxShadow: "0 4px 15px rgba(0,0,0,0.08)",
-    transition: "0.3s"
-  };
-
-  const linkStyle = {
-    display: "inline-block",
-    marginTop: "20px",
-    padding: "10px 18px",
-    background: "#0f172a",
-    color: "white",
-    borderRadius: "8px",
-    textDecoration: "none",
-    transition: "0.3s"
-  };
-
   return (
-    <section style={sectionStyle} id="contact">
-      <h1 style={titleStyle}>Contact Me</h1>
+    <section id="contact">
+      <div className="section-header">
+        <div className="section-badge">
+          <MessageSquare size={14} />
+          <span>GET IN TOUCH</span>
+        </div>
+        <h1>Contact Me</h1>
+        <p className="section-subtitle">
+          Feel free to reach out for opportunities or collaboration.
+        </p>
+      </div>
 
-      <p style={{ color: "#555" }}>
-        Feel free to reach out for opportunities or collaboration.
-      </p>
-
-      <div
-        style={boxStyle}
-        onMouseOver={(e) =>
-          (e.currentTarget.style.transform = "translateY(-5px)")
-        }
-        onMouseOut={(e) =>
-          (e.currentTarget.style.transform = "translateY(0px)")
-        }
+      <motion.div
+        className="contact-card-wrapper"
+        initial={{ opacity: 0, y: 40, scale: 0.95 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       >
-        <p>
-          <strong>Email:</strong>{" "}
-          <a href="mailto:praveend12321@gmail.com">
-            praveend12321@gmail.com
-          </a>
-        </p>
+        <div className="contact-box">
+          <div className="contact-info-list">
+            <div className="contact-info-item">
+              <Mail size={18} color="#38bdf8" />
+              <span>
+                <strong>Email:</strong>{' '}
+                <a href="mailto:praveend12321@gmail.com" className="interactive">
+                  praveend12321@gmail.com
+                </a>
+              </span>
+            </div>
 
-        <p>
-          <strong>Location:</strong> Kanchipuram, Tamil Nadu, India
-        </p>
-      </div>
+            <div className="contact-info-item">
+              <MapPin size={18} color="#a855f7" />
+              <span>
+                <strong>Location:</strong> Kanchipuram, Tamil Nadu, India
+              </span>
+            </div>
+          </div>
 
-      <div>
-        <a
-          href="mailto:praveend2103@gmail.com"
-          style={linkStyle}
-          onMouseOver={(e) =>
-            (e.target.style.background = "#0ea5e9")
-          }
-          onMouseOut={(e) =>
-            (e.target.style.background = "#0f172a")
-          }
-        >
-          Send Email
-        </a>
-      </div>
+          <div>
+            <a
+              href="mailto:praveend2103@gmail.com"
+              className="send-email-btn interactive"
+            >
+              <Send size={18} />
+              <span>Send Email</span>
+            </a>
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }
